@@ -5,6 +5,8 @@ const Home = () => {
   return (
     <div>
       <Hero />
+      {/* temporary div */}
+      <div className="h-[3000px]"></div>
     </div>
   );
 };

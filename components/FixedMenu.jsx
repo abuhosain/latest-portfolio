@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CgMenuGridR } from "react-icons/cg";
 import { useMediaQuery } from "react-responsive";
-import { FiMapPin, FiPhoneCall, FiMail } from "react-responsive";
+import { FiMapPin, FiPhoneCall, FiMail } from "react-icons/fi";
 
 // components
 import Nav from "./Nav";
@@ -55,7 +55,47 @@ const FixedMenu = () => {
                 spy={true}
               />
               {/* info */}
-              <div className="hidden md:flex">info</div>
+              <div className="hidden md:flex mx-auto">
+                <div >
+                  <div className="flex gap-12 mb-12">
+                    {/* Location */}
+                    <div className="flex flex-col">
+                      <div className="text-[28px] text-accent mb-2">
+                        <FiMapPin />
+                      </div>
+                      <p className="font-semibold text-primary text-lg">
+                        Location
+                      </p>
+                      <p>Bogura, Bangladesh</p>
+                    </div>
+                    {/* Phone */}
+                    <div className="flex flex-col">
+                      <div className="text-[28px] text-accent mb-2">
+                        <FiPhoneCall />
+                      </div>
+                      <p className="font-semibold text-primary text-lg">
+                        Phone
+                      </p>
+                      <p>+880 1319 539510</p>
+                    </div>
+                    {/* Email */}
+                    <div className="flex flex-col">
+                      <div className="text-[28px] text-accent mb-2">
+                        <FiMail />
+                      </div>
+                      <p className="font-semibold text-primary text-lg">
+                        Email
+                      </p>
+                      <p>abuhosainmin@gmail.com</p>
+                    </div>
+                  </div>
+                  {/* socials */}
+                  <Social
+                    containerStyles="flex gap-2"
+                    iconStyles="text-[20px] w-[32px] h-[32px] text-primary flex items-center justify-center rounded-full"
+                  />
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

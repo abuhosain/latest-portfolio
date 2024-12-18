@@ -1,11 +1,14 @@
-"use client"
+"use client";
+
+import React, { useEffect } from "react";
+
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import FixedMenu from "@/components/FixedMenu";
 import Hero from "@/components/Hero";
 import Journey from "@/components/Journey";
 import Services from "@/components/Services";
 import Work from "@/components/Work";
-import React, { useEffect } from "react";
 
 const Home = () => {
   // implement locomotive scroll
@@ -19,6 +22,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
+      <FixedMenu />
       <Services />
       <About />
       <Journey />

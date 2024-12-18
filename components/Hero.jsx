@@ -26,7 +26,7 @@ const Hero = () => {
                 "Applications",
                 200,
               ]}
-              speed={50}
+              speed={30}
               repeat={Infinity}
               wrapper="span"
               cursor={false}

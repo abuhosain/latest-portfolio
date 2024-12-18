@@ -48,8 +48,14 @@ const FixedMenu = () => {
         {showMenu && showMenuButton && (
           <motion.div className="relative w-full max-w-md md:max-w-none h-[400px] bottom-[28rem] xl:bottom-[21.2rem]  px-4 pointer-events-auto">
             <div className="bg-white w-full h-full shadow-custom max-w-[1170px] mx-auto py-12 xl:py-12 px-12 xl:px-32 flex items-center gap-12 rounded-lg">
-              <div>nav</div>
-              {/*  */}
+              <Nav
+                containerStyle="md:border-r border-secondary/28 md:pr-12 w-full md:w-auto text-center md:text-left"
+                listStyles="flex flex-col justify-center gap-4"
+                linkStyles="font-primary text-4xl text-primary cursor-pointer"
+                spy={true}
+              />
+              {/* info */}
+              <div className="hidden md:flex">info</div>
             </div>
           </motion.div>
         )}

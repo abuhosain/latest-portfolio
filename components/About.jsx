@@ -58,9 +58,37 @@ const About = () => {
               <p className="text-lg">Full Stack Developer</p>
             </div>
             <p className="max-w-[680px] mx-auto xl:mx-0 mb-2">
-              I’m a full-stack developer proficient in the MERN stack and SQL, crafting user-friendly web applications with robust, scalable back-end systems. I’m passionate about delivering innovative and efficient solutions.
-              </p>
-              {/* Info items */}
+              I’m a full-stack developer proficient in the MERN stack and SQL,
+              crafting user-friendly web applications with robust, scalable
+              back-end systems. I’m passionate about delivering innovative and
+              efficient solutions.
+            </p>
+            {/* Info items */}
+            <div className="flex flex-col lg:flex-row gap-8 xl:gap-12 max-w-max mx-auto xl:max-0 items-center">
+              {/* info item 1 */}
+              <div className="whitespace-nowrap">
+                <div className="uppercase font-bold text-primary">Age</div>
+                <div>18 Years</div>
+              </div>
+
+              {/* info item 2 */}
+              <div className="whitespace-nowrap">
+                <div className="uppercase font-bold text-primary">Born in</div>
+                <div>Bogura, Bangladesh</div>
+              </div>
+
+              {/* info item 3 */}
+              <div className="whitespace-nowrap">
+                <div className="uppercase font-bold text-primary">Phone</div>
+                <div>+880 1319 539510</div>
+              </div>
+
+              {/* info item 4 */}
+              <div className="whitespace-nowrap">
+                <div className="uppercase font-bold text-primary">Email</div>
+                <div>abuhosainmin@gmail.com</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

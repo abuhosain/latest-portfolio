@@ -42,8 +42,8 @@ const About = () => {
                   />
                 </motion.div>
                 <div className="absolute text-center text-white">
-                  <div>2+</div>
-                  <div>
+                  <div className="text-5xl font-bold leading-none">2+</div>
+                  <div className="leading-none text-center text-lg">
                     Years of <br /> Experience
                   </div>
                 </div>

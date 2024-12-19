@@ -6,6 +6,7 @@ const About = () => {
   return (
     <section className="relative pt-12 pb-24" id="about">
       <div className="container mx-auto h-full">
+        {/* Image */}
         <div className="h-full flex items-center justify-center">
           <div className="hidden xl:flex flex-1 pl-8">
             <div className="relative w-full max-w-[300px]">
@@ -49,6 +50,17 @@ const About = () => {
                 </div>
               </div>
             </div>
+          </div>
+          {/* text */}
+          <div className="text-center xl:text-left w-full xl:w-1/2 mx-auto xl:mx-0 flex flex-col gap-6">
+            <div>
+              <AnimatedText text="Abu Hosain" textStyles="h2 mb-2" />
+              <p className="text-lg">Full Stack Developer</p>
+            </div>
+            <p className="max-w-[680px] mx-auto xl:mx-0 mb-2">
+              I’m a full-stack developer proficient in the MERN stack and SQL, crafting user-friendly web applications with robust, scalable back-end systems. I’m passionate about delivering innovative and efficient solutions.
+              </p>
+              {/* Info items */}
           </div>
         </div>
       </div>

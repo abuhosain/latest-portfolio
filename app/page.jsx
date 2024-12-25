@@ -8,7 +8,7 @@ import FixedMenu from "@/components/FixedMenu";
 import Hero from "@/components/Hero";
 import Journey from "@/components/Journey";
 import Services from "@/components/Services";
-import Work from "@/components/Work";
+import Work from "@/components/Work/Work";
 
 const Home = () => {
   // implement locomotive scroll

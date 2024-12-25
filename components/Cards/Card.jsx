@@ -31,35 +31,38 @@ const Card = ({
                   ? qualification
                   : duration}
               </h3>
-              
             </div>
             <p className="text-base">
-                {type !== "experience" && type !== "education"
-                  ? null
-                  : duration}
-              </p>
-         
+              {type !== "experience" && type !== "education" ? null : duration}
+            </p>
           </div>
           <div className="flex-1 flex items-center justify-center xl:justify-start md:py-8 md:px-16">
-              <div>
-                {type === "skill" ? (
-                  // rednder icon for skills
-                  <div className="div">
-                    <div className="">{icon}</div>
-                  </div>
-                ) : (
-                  // render logo for experience and education
-                  <div className="relative w-[300px] h-[30px] xl:h-[44px]">
-                    <Image
-                      src={logoUrl}
-                      fill
-                      alt=""
-                      className="object-contain"
-                    />
-                  </div>
-                )}
+            <div>
+              {type === "skill" ? (
+                // rednder icon for skills
+                <div className="div">
+                  <div className="">{icon}</div>
+                </div>
+              ) : (
+                // render logo for experience and education
+                <div className="relative w-[300px] h-[30px] xl:h-[44px]">
+                  <Image src={logoUrl} fill alt="" className="object-contain" />
+                </div>
+              )}
+
+              <div className="xl:border-l xl:border-secondary/10 xl:pl-12 w-full">
+                <h3 className="hidden xl:flex h3 mb-2 xl:mb-4 ">
+                  {type === "experience"
+                    ? company
+                    : type === "education"
+                    ? istitution
+                    : type === "skill"
+                    ? name
+                    : null}
+                </h3>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </div>

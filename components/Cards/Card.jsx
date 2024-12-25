@@ -7,7 +7,7 @@ const Card = ({
   duration,
   description,
   company,
-  istitution,
+  institution,
   qualification,
   name,
   icon,
@@ -37,11 +37,11 @@ const Card = ({
             </p>
           </div>
           <div className="flex-1 flex items-center justify-center xl:justify-start md:py-8 md:px-16">
-            <div>
+            <div className="flex flex-col xl:flex-row items-center xl:items-start gap-4 text-center xl:text-left xl:gap-10 px-4 xl:px-0">
               {type === "skill" ? (
                 // rednder icon for skills
-                <div className="div">
-                  <div className="">{icon}</div>
+                <div className="w-max xl:w-[300px] h-full relative flex items-center justify-center ">
+                  <div className="text-5xl text-primary/90">{icon}</div>
                 </div>
               ) : (
                 // render logo for experience and education
@@ -55,11 +55,12 @@ const Card = ({
                   {type === "experience"
                     ? company
                     : type === "education"
-                    ? istitution
+                    ? institution
                     : type === "skill"
                     ? name
                     : null}
                 </h3>
+                <p className="text-base max-w-[660px]">{description}</p>
               </div>
             </div>
           </div>

@@ -1,6 +1,8 @@
+"use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
+import AnimatedText from "../AnimatedText";
 
 const data = [
   {
@@ -52,12 +54,50 @@ const Work = () => {
   const [visibleItems, setVisibleItems] = useState(6);
 
   // filter data based on selected tab
-  const filterWork = (tabValue = "all"
-    ? data.filter((itme) => item.category != "all")
-    : data.filter((item) => item.category === tabValue));
+  const filterWork =
+    tabValue === "all"
+      ? data.filter((item) => item.category !== "all")
+      : data.filter((item) => item.category === tabValue);
+
+  // handle load more button click
+  const loadMoreItem = () => {
+    setVisibleItems(visibleItems + 2);
+  };
   return (
-    <section className="bg-blue-200 py-96" id="work">
-      Work
+    <section className="pt-24 min-h-[1000px] " id="work">
+      <div className="container mx-auto">
+        <Tabs defaultValue="all" className="w-full flex flex-col">
+          <div className="flex flex-col xl:flex-row items-center xl:items-start  xl:justify-between mb-[30px]">
+            <AnimatedText
+              text="My Latest Work"
+              textStyles="h2 mb-[30px] xl:mb-0"
+            />
+            {/* render for trigger */}
+            <TabsList className="max-w-max h-full mb-[30px] flex flex-col md:flex-row gap-4 md:gap-0">
+              {tabData.map((item, index) => (
+                <TabsTrigger
+                  key={index}
+                  value={item.category}
+                  className="capitalize w-[120px]"
+                  onClick={() => setTabValue(item.category)}
+                >
+                  {item.category}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
+          {/* render content for the selected tab */}
+          <TabsContent value={tabValue} className="w-full">
+            <div>
+              <AnimatePresence>
+                {filterWork.slice(0, visibleItems).map((item, index) => (
+                  <motion.div>Work item</motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
     </section>
   );
 };

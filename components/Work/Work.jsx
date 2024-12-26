@@ -9,31 +9,91 @@ const data = [
   {
     href: "",
     category: "frontend",
-    image: "/assets/work/thumb-3.jpg",
+    image: "/assets/work/thumb-3.png",
     title: "Velox App",
   },
   {
     href: "",
     category: "frontend",
-    image: "/assets/work/thumb-4.jpg",
+    image: "/assets/work/thumb-4.png",
     title: "Quantam Portfolio",
   },
   {
     href: "",
     category: "frontend",
-    image: "/assets/work/thumb-5.jpg",
+    image: "/assets/work/thumb-5.png",
     title: "Synargy Landing Page",
   },
   {
     href: "",
     category: "fullstack",
-    image: "/assets/work/thumb-6.jpg",
+    image: "/assets/work/thumb-6.png",
     title: "Apollo Travel",
   },
   {
     href: "",
     category: "fullstack",
-    image: "/assets/work/thumb-7.jpg",
+    image: "/assets/work/thumb-7.png",
+    title: "Horizon App",
+  },
+  {
+    href: "",
+    category: "frontend",
+    image: "/assets/work/thumb-4.png",
+    title: "Quantam Portfolio",
+  },
+  {
+    href: "",
+    category: "frontend",
+    image: "/assets/work/thumb-5.png",
+    title: "Synargy Landing Page",
+  },
+  {
+    href: "",
+    category: "fullstack",
+    image: "/assets/work/thumb-6.png",
+    title: "Apollo Travel",
+  },
+  {
+    href: "",
+    category: "fullstack",
+    image: "/assets/work/thumb-7.png",
+    title: "Horizon App",
+  },
+  {
+    href: "",
+    category: "fullstack",
+    image: "/assets/work/thumb-6.png",
+    title: "Apollo Travel",
+  },
+  {
+    href: "",
+    category: "fullstack",
+    image: "/assets/work/thumb-7.png",
+    title: "Horizon App",
+  },
+  {
+    href: "",
+    category: "frontend",
+    image: "/assets/work/thumb-4.png",
+    title: "Quantam Portfolio",
+  },
+  {
+    href: "",
+    category: "frontend",
+    image: "/assets/work/thumb-5.png",
+    title: "Synargy Landing Page",
+  },
+  {
+    href: "",
+    category: "fullstack",
+    image: "/assets/work/thumb-6.png",
+    title: "Apollo Travel",
+  },
+  {
+    href: "",
+    category: "fullstack",
+    image: "/assets/work/thumb-7.png",
     title: "Horizon App",
   },
 ];
@@ -62,7 +122,7 @@ const Work = () => {
 
   // handle load more button click
   const loadMoreItem = () => {
-    setVisibleItems(visibleItems + 2);
+    setVisibleItems(visibleItems + 3);
   };
   return (
     <section className="pt-24 min-h-[1000px] " id="work">
@@ -89,15 +149,29 @@ const Work = () => {
           </div>
           {/* render content for the selected tab */}
           <TabsContent value={tabValue} className="w-full">
-            <div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-[30px]">
               <AnimatePresence>
                 {filterWork.slice(0, visibleItems).map((item, index) => (
-                  <motion.div key={index}>
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <WorkItems {...item} />
                   </motion.div>
                 ))}
               </AnimatePresence>
             </div>
+            {/* Load more button */}
+            {visibleItems < filterWork.length && (
+              <div className="flex justify-center mt-12">
+                <button onClick={loadMoreItem} className="btn btn-accent">
+                  Load More
+                </button>
+              </div>
+            )}
           </TabsContent>
         </Tabs>
       </div>

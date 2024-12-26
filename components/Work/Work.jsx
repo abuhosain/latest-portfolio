@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 import AnimatedText from "../AnimatedText";
+import WorkItems from "./WorkItems";
 
 const data = [
   {
@@ -91,7 +92,9 @@ const Work = () => {
             <div>
               <AnimatePresence>
                 {filterWork.slice(0, visibleItems).map((item, index) => (
-                  <motion.div>Work item</motion.div>
+                  <motion.div key={index}>
+                    <WorkItems {...item} />
+                  </motion.div>
                 ))}
               </AnimatePresence>
             </div>

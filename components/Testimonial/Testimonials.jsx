@@ -15,7 +15,7 @@ import AnimatedText from "../AnimatedText";
 import Image from "next/image";
 
 // import sample data for testimoinials
-const data = [
+const slides = [
   {
     img: "/assets/testimoinial/img-1.png",
     name: "John Doe",
@@ -68,6 +68,11 @@ const Testimonials = () => {
           textStyles="h2 mb-[30px] xl:mb-[60px] text-center"
         />
       </div>
+      <Swiper>
+        {slides.map((slide, index) => {
+          return <SwiperSlide key={index}>swiper</SwiperSlide>;
+        })}
+      </Swiper>
     </div>
   );
 };

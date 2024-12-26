@@ -9,6 +9,7 @@ import Hero from "@/components/Hero";
 import Journey from "@/components/Journey";
 import Services from "@/components/Services";
 import Work from "@/components/Work/Work";
+import Testimonials from "@/components/Testimonial/Testimonials";
 
 const Home = () => {
   // implement locomotive scroll
@@ -27,6 +28,7 @@ const Home = () => {
       <About />
       <Journey />
       <Work />
+      <Testimonials />
       <Contact />
       {/* temporary div */}
       <div className="h-[3000px]"></div>

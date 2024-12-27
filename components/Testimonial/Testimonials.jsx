@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 //  required module
-import { AutoPlay } from "swiper/modules";
+import { Autoplay } from 'swiper/modules';
 
 import AnimatedText from "../AnimatedText";
 import Image from "next/image";
@@ -61,7 +61,7 @@ const Testimonials = () => {
   }, [swiperRef]);
 
   return (
-    <div className="py-24 overflow-hidden ">
+    <div className="py-24 px-12 overflow-hidden ">
       <div className="container mx-auto">
         <AnimatedText
           text="What Clients Say??"
@@ -87,13 +87,19 @@ const Testimonials = () => {
             slidesPerView: 4,
           },
         }}
+        onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         className="w-full h-[400px] xl:h-[500px]"
       >
         {slides.map((slide, index) => {
           return (
             <SwiperSlide key={index} className="h-full select-none">
               <div className="w-full h-full flex items-end">
-                <div className="flex items-end rounded-2xl overflow-hidden">
+                <div className={`${activeSlide === index ? "h-full" : "h-[240px]"} flex items-end rounded-2xl overflow-hidden transition-all duration-500 relative w-full`}>
                   <Image
                     src={slide.img}
                     alt={slide.name}

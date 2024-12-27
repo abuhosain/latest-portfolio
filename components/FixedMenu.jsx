@@ -46,7 +46,13 @@ const FixedMenu = () => {
       {/* menu */}
       <AnimatePresence>
         {showMenu && showMenuButton && (
-          <motion.div className="relative w-full max-w-md md:max-w-none h-[400px] bottom-[28rem] xl:bottom-[21.2rem]  px-4 pointer-events-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{duration: 0.3}}
+            className="relative w-full max-w-md md:max-w-none h-[400px] bottom-[38rem] xl:bottom-[31.2rem]  px-4 pointer-events-auto"
+          >
             <div className="bg-white w-full h-full shadow-custom max-w-[1170px] mx-auto py-12 xl:py-12 px-12 xl:px-32 flex items-center gap-12 rounded-lg">
               <Nav
                 containerStyle="md:border-r border-secondary/28 md:pr-12 w-full md:w-auto text-center md:text-left"
@@ -56,7 +62,7 @@ const FixedMenu = () => {
               />
               {/* info */}
               <div className="hidden md:flex mx-auto">
-                <div >
+                <div>
                   <div className="flex gap-12 mb-12">
                     {/* Location */}
                     <div className="flex flex-col">

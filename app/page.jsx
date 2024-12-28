@@ -10,6 +10,7 @@ import Journey from "@/components/Journey";
 import Services from "@/components/Services";
 import Work from "@/components/Work/Work";
 import Testimonials from "@/components/Testimonial/Testimonials";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   // implement locomotive scroll
@@ -30,8 +31,7 @@ const Home = () => {
       <Work />
       <Testimonials />
       <Contact />
-      {/* temporary div */}
-      <div className="h-[3000px]"></div>
+       <Footer />
     </div>
   );
 };

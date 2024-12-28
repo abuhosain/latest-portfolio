@@ -57,8 +57,8 @@ const Contact = () => {
   return (
     <section className="pt-8 xl:pt-12 pb-32" id="contact">
       <div className="container mx-auto">
-        <div>
-          <div>
+        <div className="flex flex-col items-center xl:flex-row gap-16">
+          <div className="flex-1 mx-auto xl:mx-0 flex flex-col">
             <AnimatedText
               text="Let's Work Together"
               textStyles="h2 mb-12 text-center xl:text-left"
@@ -73,7 +73,7 @@ const Contact = () => {
                 {/* firstName and lastName */}
                 <div className="flex-1">
                   <label
-                    htmlFor="firstName"
+                    htmlFor="First Name"
                     className="block text-sm mb-2 font-medium text-primary"
                   >
                     First Name <span className="text-accent">*</span>
@@ -87,11 +87,16 @@ const Contact = () => {
                       required
                       id="firstName"
                     />
+                    <ValidationError
+                    prefix="FirstName"
+                    field="email"
+                    errors={state.errors}
+                  />
                   </label>
                 </div>
                 <div className="flex-1">
                   <label
-                    htmlFor="lastName"
+                    htmlFor="LastName"
                     className="block text-sm mb-2 font-medium text-primary"
                   >
                     Last Name <span className="text-accent">*</span>
@@ -105,6 +110,11 @@ const Contact = () => {
                       required
                       id="lastName"
                     />
+                    <ValidationError
+                    prefix="LastName"
+                    field="lastName"
+                    errors={state.errors}
+                  />
                   </label>
                 </div>
               </div>
@@ -207,6 +217,10 @@ const Contact = () => {
                 )}
               </button>
             </form>
+          </div>
+          {/* Image */}
+          <div className="hidden xl:flex relative w-[577px] h-[664px] rounded-lg overflow-hidden">
+            <Image src="/assets/contact/img.png" className="object-cover" fill quality={100} alt="Contact" />
           </div>
         </div>
       </div>

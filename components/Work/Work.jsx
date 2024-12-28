@@ -139,7 +139,7 @@ const Work = () => {
                 <TabsTrigger
                   key={index}
                   value={item.category}
-                  className="capitalize w-[120px]"
+                  className="uppercase w-[120px]"
                   onClick={() => setTabValue(item.category)}
                 >
                   {item.category}

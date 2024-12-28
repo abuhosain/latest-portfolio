@@ -45,13 +45,13 @@ const Card = ({
                 </div>
               ) : (
                 // render logo for experience and education
-                <div className="relative w-[300px] h-[30px] xl:h-[44px]">
+                <div className="relative w-[300px] h-[30px] xl:h-[84px]">
                   <Image src={logoUrl} fill alt="" className="object-contain" />
                 </div>
               )}
 
               <div className="xl:border-l xl:border-secondary/10 xl:pl-12 w-full">
-                <h3 className="hidden xl:flex h3 mb-2 xl:mb-4 ">
+                <h3 className=" xl:flex h3 mb-2 xl:mb-4 ">
                   {type === "experience"
                     ? company
                     : type === "education"

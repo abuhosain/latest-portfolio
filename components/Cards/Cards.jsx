@@ -16,8 +16,8 @@ const journey = [
   // experience
   {
     type: "experience",
-    company: "Premium Sheba",
-    logoUrl: "/assets/journey/experience/logo-1.svg",
+    company: "Sheba Mart",
+    logoUrl: "/assets/logo/shebamart.svg",
     position: "Frontend Developer",
     duration: "Oct 2023 - Nov 2024",
     description:
@@ -26,27 +26,18 @@ const journey = [
   {
     type: "experience",
     company: "Coality",
-    logoUrl: "/assets/journey/experience/logo-2.svg",
+    logoUrl: "/assets/logo/coality.png",
     position: "Full Stack Developer",
     duration: "Oct 2024 - Present",
     description:
       "Built websites and web applications using Ract, Next.js and Node.js. Worked on scalable, user-friendly solutions.",
   },
-  {
-    type: "experience",
-    company: "Min Tech",
-    logoUrl: "/assets/journey/experience/logo-3.svg",
-    position: "Full Stack Developer",
-    duration: "Oct 2024 - Present",
-    description:
-      "Built websites and web applications using Ract, Next.js and Node.js. Worked on scalable, user-friendly solutions.",
-  },
-
+   
   // education
   {
     type: "education",
     institution: "Bogura Polytechnic Institute",
-    logoUrl: "/assets/journey/education/logo-1.svg",
+    logoUrl: "/assets/logo/bpi.png",
     qualifiacation: "Computer Science and Technology",
     duration: "Jan 2022 - Present",
     description:
@@ -55,7 +46,7 @@ const journey = [
   {
     type: "education",
     institution: "Kutubpur High School",
-    logoUrl: "/assets/journey/education/logo-2.svg",
+    logoUrl: "/assets/logo/kutubpur.png",
     qualifiacation: "Secondary School Certificate",
     duration: "Jan 2017 - Dec 2021",
     description:

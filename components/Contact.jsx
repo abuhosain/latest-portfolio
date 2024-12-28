@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect } from "react";
 
 // form server
@@ -48,7 +49,7 @@ const Contact = () => {
   }, [state.succeeded]);
 
   // form data submit
-  const handleFormSubmit = () => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     handleSubmit(formData);
   };
@@ -64,42 +65,45 @@ const Contact = () => {
             />
 
             {/* form */}
-            <form className="flex flex-col gap-6 w-full max-w-[480px]">
+            <form
+              onSubmit={handleFormSubmit}
+              className="flex flex-col gap-6 w-full max-w-[480px]"
+            >
               <div className="flex gap-8">
-                {/* firstname and lastname */}
+                {/* firstName and lastName */}
                 <div className="flex-1">
                   <label
-                    htmlFor="firstname"
+                    htmlFor="firstName"
                     className="block text-sm mb-2 font-medium text-primary"
                   >
                     First Name <span className="text-accent">*</span>
                     <input
                       onChange={handleChange}
                       type="text"
-                      name="firstname"
+                      name="firstName"
                       value={formData.firstName}
                       className="input"
                       placeholder="First Name"
                       required
-                      id="lastname"
+                      id="firstName"
                     />
                   </label>
                 </div>
                 <div className="flex-1">
                   <label
-                    htmlFor="lastname"
+                    htmlFor="lastName"
                     className="block text-sm mb-2 font-medium text-primary"
                   >
                     Last Name <span className="text-accent">*</span>
                     <input
                       onChange={handleChange}
                       type="text"
-                      name="lastname"
+                      name="lastName"
                       value={formData.lastName}
                       className="input"
                       placeholder="Last Name"
                       required
-                      id="lastname"
+                      id="lastName"
                     />
                   </label>
                 </div>
@@ -107,13 +111,13 @@ const Contact = () => {
               {/* email field */}
               <div>
                 <label
-                  htmlFor="firstname"
+                  htmlFor="firstName"
                   className="block text-sm mb-2 font-medium text-primary"
                 >
                   Email <span className="text-accent">*</span>
                   <input
                     onChange={handleChange}
-                    type="text"
+                    type="email"
                     name="email"
                     value={formData.email}
                     className="input"
@@ -187,8 +191,18 @@ const Contact = () => {
                   <span>Sending</span>
                 ) : (
                   <>
-                    <FaCheckCircle />
-                    <span>Send Message</span>
+                    <FaCheckCircle
+                      className={`absolute text-white text-lg transition-opacity duration-500 ease-in-out ${
+                        showIcon ? "opacity-100" : "opacity-0"
+                      }`}
+                    />
+                    <span
+                      className={`transition-opacity duration-500 ease-in-out ${
+                        showIcon ? "opacity-0" : "opacity-100"
+                      }`}
+                    >
+                      Send Message
+                    </span>
                   </>
                 )}
               </button>

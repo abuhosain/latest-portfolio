@@ -10,19 +10,19 @@ import { RiInstagramFill } from "react-icons/ri";
 const socials = [
   {
     icon: <RiInstagramFill />,
-    path: "",
+    path: "https://www.instagram.com/abuhosain25",
   },
   {
     icon: <FaFacebookF />,
-    path: "",
+    path: "https://web.facebook.com/abuhosain25",
   },
   {
     icon: <FaTwitter />,
-    path: "",
+    path: "https://x.com/Hosain2079912?t=C7hcUi9BTuJaKyCZQrT9ZA",
   },
   {
     icon: <FaLinkedin />,
-    path: "",
+    path: "https://www.linkedin.com/in/abuhosain25",
   },
 ];
 

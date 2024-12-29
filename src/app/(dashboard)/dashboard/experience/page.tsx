@@ -9,7 +9,7 @@ import { useGetAllJourney } from "../../../../hooks/journey.hook";
 const ManageCategory = () => {
   const { data, isPending } = useGetAllJourney();
   const [experience, setExperience] = useState<any[]>([]);
-
+console.log(experience)
   useEffect(() => {
     if (data?.data) {
       // Filter data where type is 'experience'

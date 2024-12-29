@@ -14,7 +14,7 @@ export const useDeleteJourney = () => {
     mutationKey: ["DELETE_JOURNEY"],
     mutationFn: async (journeyId) => await deleteJourney(journeyId),
     onSuccess: () => {
-      toast.success(" Delete Recipe  successfully");
+      toast.success(" Deleted successfully");
     },
     onError: (error) => {
       toast.error(error?.message);

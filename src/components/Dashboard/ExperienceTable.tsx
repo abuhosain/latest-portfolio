@@ -69,7 +69,7 @@ const ExperienceTable = ({
           ) : experiences.length > 0 ? (
             experiences.map((category: any) => (
               <tr
-                key={category.id}
+                key={category._id}
                 className="border-b border-gray-200 hover:bg-gray-100"
               >
                 <td className="py-2 px-4">
@@ -89,14 +89,14 @@ const ExperienceTable = ({
                   </Link>
                   <button
                     className={`bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 ${
-                      deletingId === category.id
+                      deletingId === category._id
                         ? "opacity-50 cursor-not-allowed"
                         : ""
                     }`}
-                    disabled={deletingId === category.id}
-                    onClick={() => handleDelete(category.id)}
+                    disabled={deletingId === category._id}
+                    onClick={() => handleDelete(category._id)}
                   >
-                    {deletingId === category.id ? "Deleting..." : "Delete"}
+                    {deletingId === category._id ? "Deleting..." : "Delete"}
                   </button>
                 </td>
               </tr>

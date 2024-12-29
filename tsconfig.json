@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/(dashboard)/dashboard/layout.jsx", "src/app/(dashboard)/dashboard/page.jsx"  ],
+, "src/app/(dashboard)/dashboard/layout.jsx", "src/app/(dashboard)/dashboard/page.jsx", "src/components/form/PHForm.jsx"  ],
   "exclude": [
     "node_modules"
   ]

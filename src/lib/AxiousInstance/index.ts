@@ -1,7 +1,8 @@
-import envConfig from "@/src/config/env.confg";
-import { getNewAccessToken } from "@/src/services/Auth";
+ 
 import axios from "axios";
 import { cookies } from "next/headers";
+import envConfig from "../../config/env.confg";
+import { getNewAccessToken } from "../../services/Auth";
 
 const axiosInstance = axios.create({
   baseURL: envConfig.baseApi,

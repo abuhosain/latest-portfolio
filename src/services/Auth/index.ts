@@ -1,8 +1,8 @@
 "use server";
-
-import axiosInstance from "@/src/lib/AxiousInstance";
+ 
 import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
+import axiosInstance from "../../lib/AxiousInstance";
 
 export const loginUser = async (userData: any) => {
   try {

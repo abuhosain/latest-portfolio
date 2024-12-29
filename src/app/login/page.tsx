@@ -9,7 +9,7 @@ import React, { Suspense, useEffect } from "react";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import { useUser } from "../../context/user.provider";
-import { useUserLogin } from "../../hooks";
+import { useUserLogin } from "../../hooks/auth.hook";
 import Loading from "../../components/Loading";
 import PHForm from "../../components/form/PHForm";
 import PHInput from "../../components/form/PHInput";

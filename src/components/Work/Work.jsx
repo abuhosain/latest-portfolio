@@ -1,6 +1,11 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/src/components/ui/tabs";
 import { useState } from "react";
 import AnimatedText from "../AnimatedText";
 import WorkItems from "./WorkItems";

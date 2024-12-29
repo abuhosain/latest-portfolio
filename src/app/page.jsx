@@ -2,15 +2,15 @@
 
 import React, { useEffect } from "react";
 
-import About from "@/components/About";
-import Contact from "@/components/Contact";
-import FixedMenu from "@/components/FixedMenu";
-import Hero from "@/components/Hero";
-import Journey from "@/components/Journey";
-import Services from "@/components/Services";
-import Work from "@/components/Work/Work";
-import Testimonials from "@/components/Testimonial/Testimonials";
-import Footer from "@/components/Footer";
+import About from "@/src/components/About";
+import Contact from "@/src/components/Contact";
+import FixedMenu from "@/src/components/FixedMenu";
+import Hero from "@/src/components/Hero";
+import Journey from "@/src/components/Journey";
+import Services from "@/src/components/Services";
+import Work from "@/src/components/Work/Work";
+import Testimonials from "@/src/components/Testimonial/Testimonials";
+import Footer from "@/src/components/Footer";
 
 const Home = () => {
   // implement locomotive scroll
@@ -31,7 +31,7 @@ const Home = () => {
       <Work />
       <Testimonials />
       <Contact />
-       <Footer />
+      <Footer />
     </div>
   );
 };

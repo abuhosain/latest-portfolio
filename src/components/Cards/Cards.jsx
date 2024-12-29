@@ -1,4 +1,9 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/src/components/ui/tabs";
 import { motion, AnimatePresence } from "framer-motion";
 
 import {
@@ -32,7 +37,7 @@ const journey = [
     description:
       "Built websites and web applications using Ract, Next.js and Node.js. Worked on scalable, user-friendly solutions.",
   },
-   
+
   // education
   {
     type: "education",

@@ -90,7 +90,7 @@ export default function UpdateCategoryPage({
     return <p className="text-red-500">Failed to load experience details.</p>;
 
   return (
-    <div className="flex h-[calc(100vh-100px)] flex-col items-center justify-center bg-gray-50 p-6">
+    <div className="flex h-[calc(100vh-100px)] flex-col items-center justify-center  p-6">
       <h3 className="mb-4 text-2xl font-semibold text-gray-800">
         Update Experience
       </h3>

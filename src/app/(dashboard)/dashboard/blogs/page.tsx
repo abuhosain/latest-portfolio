@@ -10,7 +10,7 @@ import BlogTable from "../../../../components/Dashboard/BlogTable";
 const ManageBlog = () => {
   const { data, isPending } = useGetAllBlog();
   const [blog, setBlog] = useState<any[]>([]);
-  console.log(blog)
+  console.log(blog);
 
   useEffect(() => {
     if (data?.data) {
@@ -20,8 +20,11 @@ const ManageBlog = () => {
   return (
     <div className="lg:ml-4">
       <h3 className="text-2xl font-bold mb-4 text-center">My Blogs</h3>
-      <Link className="flex justify-end" href="/admin/create-category">
-        <Button className="mb-4 px-5 font-medium py-2 bg-accent text-primary rounded-full" color="success">
+      <Link className="flex justify-end" href="/dashboard/blogs/create-blog">
+        <Button
+          className="mb-4 px-5 font-medium py-2 bg-accent text-primary rounded-full"
+          color="success"
+        >
           Create Blog
         </Button>
       </Link>

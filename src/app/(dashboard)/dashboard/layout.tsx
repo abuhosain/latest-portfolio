@@ -10,7 +10,9 @@ import {
   FaCogs, // Icon for Skills
   FaGraduationCap, // Icon for Education
   FaBriefcase, // Icon for Work Experience
-  FaChartLine, // Icon for Dashboard
+  FaChartLine,
+  FaFileAlt,
+  FaCode, // Icon for Dashboard
 } from "react-icons/fa"; // Importing from Font Awesome
 
 const AdminDashboardLayout = ({ children }: { children: ReactNode }) => {
@@ -24,7 +26,7 @@ const AdminDashboardLayout = ({ children }: { children: ReactNode }) => {
     <div className="flex h-screen mt-3">
       {/* Side Navigation Bar */}
       <aside
-        className={`fixed inset-y-0 md:mt-14 z-50 left-0 border-r bg-white dark:bg-black shadow-lg w-64 lg:w-72 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-y-0  z-50 left-0 border-r bg-white dark:bg-black shadow-lg w-64 lg:w-72 transform transition-transform duration-300 ease-in-out ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0`}
       >
@@ -64,11 +66,27 @@ const AdminDashboardLayout = ({ children }: { children: ReactNode }) => {
               </p>
             </Link>
             <hr />
+            {/* Blog */}
+            <Link href="/dashboard/blogs">
+              <p className="flex mt-3 items-center hover:text-blue-500 transition-all duration-200 text-lg lg:text-xl">
+                <FaFileAlt className="h-6 w-6 lg:h-7 lg:w-7" />
+                <span className="ml-3 hidden lg:block">Blogs</span>
+              </p>
+            </Link>
+            <hr />
             {/* Work Experience */}
-            <Link href="/dashboard/experience">
+            <Link href="/dashboard/work">
               <p className="flex mt-3 items-center hover:text-blue-500 transition-all duration-200 text-lg lg:text-xl">
                 <FaBriefcase className="h-6 w-6 lg:h-7 lg:w-7" />
                 <span className="ml-3 hidden lg:block">Work Experience</span>
+              </p>
+            </Link>
+            <hr />
+            {/* Work Experience */}
+            <Link href="/dashboard/projects">
+              <p className="flex mt-3 items-center hover:text-blue-500 transition-all duration-200 text-lg lg:text-xl">
+                <FaCode className="h-6 w-6 lg:h-7 lg:w-7" />
+                <span className="ml-3 hidden lg:block">Projects</span>
               </p>
             </Link>
           </nav>

@@ -26,7 +26,6 @@ export default function PHInput({
       {...register(name)}
       errorMessage={errorMessage}
       isInvalid={isInvalid}
-      
       placeholder={label}
       required={required}
       size={size}

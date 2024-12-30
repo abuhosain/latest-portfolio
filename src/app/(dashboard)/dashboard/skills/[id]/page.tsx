@@ -8,43 +8,43 @@ import { toast } from "sonner";
 import {
   useGetSingleJourney,
   useUpdateJourney,
-} from "../../../../../hooks/journey.hook";
+} from "../../../../../hooks/journey.hook"; // Modify this import to get skill data if needed
 import Loading from "../../../../../components/Loading";
 import PHInput from "../../../../../components/form/PHInput";
-import { experienceValidationSchema } from "../../../../../schema/journey.validation.schema";
+
 import PHForm from "../../../../../components/form/PHForm";
 import PHTextarea from "../../../../../components/form/PHTextArea";
+import { skillValidationSchema } from "../../../../../schema/journey.validation.schema";
 
 interface Params {
   id: string;
 }
 
 interface FormData {
-  company: string;
-  position: string;
-  duration: string;
-  description: string;
+  name: string;  // Skill name field
+  duration: string;  // Duration field
+  description: string;  // Description field
 }
 
-export default function UpdateCategoryPage({ params }: { params: Params }) {
+export default function UpdateSkillPage({ params }: { params: Params }) {
   const { id } = params;
   const router = useRouter();
   const [imageFile, setImageFile] = useState<File | null>(null);
 
-  // Fetch single experience data
+  // Fetch single skill data
   const {
-    data: singleExperience,
-    isPending: isFetchingExperience,
-    isSuccess: isExperienceLoaded,
-  } = useGetSingleJourney(id);
+    data: singleSkill,
+    isPending: isFetchingSkill,
+    isSuccess: isSkillLoaded,
+  } = useGetSingleJourney(id);  // Modify hook to fetch skill data
 
-  // Update experience mutation
+  // Update skill mutation
   const {
-    mutate: handleUpdateExperience,
+    mutate: handleUpdateSkill,
     isPending: isUpdating,
     isSuccess: isUpdateSuccess,
     data: updateResponse,
-  } = useUpdateJourney();
+  } = useUpdateJourney();  // Modify mutation to update skill data
 
   const onSubmit: SubmitHandler<FormData> = (formData) => {
     const formDataObj = new FormData();
@@ -54,14 +54,13 @@ export default function UpdateCategoryPage({ params }: { params: Params }) {
     formDataObj.append(
       "data",
       JSON.stringify({
-        company: formData.company,
-        position: formData.position,
-        duration: formData.duration,
-        description: formData.description,
+        name: formData.name, // Handle skill name
+        duration: formData.duration, // Handle skill duration
+        description: formData.description, // Handle skill description
       })
     );
 
-    handleUpdateExperience({ id, journeyData: formDataObj });
+    handleUpdateSkill({ id, journeyData: formDataObj });  // Modify this line to update skill
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -75,45 +74,45 @@ export default function UpdateCategoryPage({ params }: { params: Params }) {
       toast.error(updateResponse.message as string);
     }
     if (isUpdateSuccess && updateResponse.success) {
-      toast.success("Experience updated successfully.");
-      router.push("/dashboard/experience");
+      toast.success("Skill updated successfully.");
+      router.push("/dashboard/skills");  // Redirect after success
     }
   }, [updateResponse, isUpdateSuccess, router, id]);
 
-  if (isFetchingExperience) return <Loading />;
-  if (!isExperienceLoaded || !singleExperience)
-    return <p className="text-red-500">Failed to load experience details.</p>;
+  if (isFetchingSkill) return <Loading />;
+  if (!isSkillLoaded || !singleSkill)
+    return <p className="text-red-500">Failed to load skill details.</p>;
 
   return (
-    <div className="flex h-[calc(100vh)] mt-7 flex-col items-center justify-center  p-6">
+    <div className="flex h-[calc(100vh)] mt-7 flex-col items-center justify-center p-6">
       <h3 className="mb-4 text-2xl font-semibold text-gray-800">
-        Update Experience
+        Update Skill
       </h3>
       <hr className="border w-full mb-3" />
       <div className="w-full max-w-2xl rounded-lg bg-white p-8 shadow-lg">
         <PHForm
-          resolver={zodResolver(experienceValidationSchema)}
+          resolver={zodResolver(skillValidationSchema)} // Modify to use skill schema if different
           onSubmit={onSubmit}
-          defaultValues={singleExperience?.data || {}} // Ensure defaultValues are valid
+          defaultValues={singleSkill?.data || {}} // Ensure default values for skill data
         >
           <div className="grid grid-cols-1 gap-6">
             <div>
-              <label htmlFor="company" className="block text-sm font-medium text-gray-700">
-                Company Name
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Skill Name
               </label>
-              <PHInput   label="Company" name="company" size="sm" />
+              <PHInput label="Skill Name" name="name" size="sm" />
             </div>
             <div>
-              <label htmlFor="position" className="block text-sm font-medium text-gray-700">
-                Position
-              </label>
-              <PHInput   label="Position" name="position" size="sm" />
-            </div>
-            <div>
-              <label htmlFor="duration" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="duration"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Duration
               </label>
-              <PHInput  label="Duration" name="duration" size="sm" />
+              <PHInput label="Duration" name="duration" size="sm" />
             </div>
             <PHTextarea label="Description" name="description" size="sm" />
           </div>
@@ -122,7 +121,7 @@ export default function UpdateCategoryPage({ params }: { params: Params }) {
               className="block text-sm font-medium text-gray-700"
               htmlFor="image"
             >
-              Change Company Logo
+              Change Skill Image
             </label>
             <input
               className="mt-2 block w-full rounded border-gray-300 text-sm text-gray-800 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
@@ -137,7 +136,7 @@ export default function UpdateCategoryPage({ params }: { params: Params }) {
             size="lg"
             type="submit"
           >
-            {isUpdating ? "Updating..." : "Update Experience"}
+            {isUpdating ? "Updating..." : "Update Skill"}
           </Button>
         </PHForm>
       </div>

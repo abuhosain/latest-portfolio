@@ -81,7 +81,7 @@ const SkillTable = ({
                 <td className="py-2 px-4">{skill?.name}</td> {/* Skill Name */}
                 <td className="py-2 px-4">{skill?.description}</td> {/* Description */}
                 <td className="py-2 px-4 mt-3 flex space-x-2">
-                  <Link href={`/dashboard/experience/${skill?._id}`}>
+                  <Link href={`/dashboard/skills/${skill?._id}`}>
                     <button className="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600">
                       Update
                     </button>

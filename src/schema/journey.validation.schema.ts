@@ -13,3 +13,27 @@ export const experienceValidationSchema = z.object({
     .min(3, "Description must be at least 10 characters.") // Minimum length
     .max(500, "Description cannot exceed 500 characters."), // Optional maximum length
 });
+
+
+export const educationValidationSchema = z.object({
+  type: z.literal("education").optional(),
+  institution: z
+    .string()
+    .min(1, { message: "Institution name is required" })
+    .max(100, { message: "Institution name must be less than 100 characters" }),
+  qualification: z
+    .string()
+    .min(1, { message: "Qualification is required" })
+    .max(100, { message: "Qualification must be less than 100 characters" }),
+  duration: z
+    .string()
+    .min(1, { message: "Duration is required" })
+    .regex(
+      /^[a-zA-Z]+\s\d{4}\s-\s[a-zA-Z]+\s\d{4}$/,
+      { message: "Duration must follow the format: 'Jan 2022 - Dec 2023'" }
+    ),
+  description: z
+    .string()
+    .min(1, { message: "Description is required" })
+    .max(500, { message: "Description must be less than 500 characters" }),
+});

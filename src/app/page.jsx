@@ -11,6 +11,7 @@ import Contact from "../components/Contact"
 import FixedMenu from "../components/FixedMenu"
 import Hero from "../components/Hero"
 import Journey from "../components/Journey"
+import Blogs from "../components/Blogs/Blogs";
 
 const Home = () => {
   // implement locomotive scroll
@@ -29,6 +30,7 @@ const Home = () => {
       <About />
       <Journey />
       <Work />
+      <Blogs />
       <Testimonials />
       <Contact />
       <Footer />

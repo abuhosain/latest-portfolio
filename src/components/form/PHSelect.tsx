@@ -23,7 +23,7 @@ export default function PHSelect({
   return (
     <Select
       {...register(name)}
-      className="min-w-full sm:min-w-[225px]"
+      className="min-w-full sm:min-w-[225px] border rounded-md"
       isDisabled={disabled}
       label={label}
       variant={variant}

@@ -3,7 +3,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/src/components/ui/tabs";
+} from "../../components/ui/tabs";
 import { motion, AnimatePresence } from "framer-motion";
 
 import {

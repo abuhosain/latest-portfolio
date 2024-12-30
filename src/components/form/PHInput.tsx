@@ -32,7 +32,7 @@ export default function PHInput({
       size={size}
       type={type}
       variant={variant}
-      className="border rounded-md"
+      className="border rounded-md px-3 py-2"
     />
   );
 }

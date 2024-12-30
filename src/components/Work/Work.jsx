@@ -5,7 +5,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/src/components/ui/tabs";
+} from "../../components/ui/tabs";
 import { useState } from "react";
 import AnimatedText from "../AnimatedText";
 import WorkItems from "./WorkItems";

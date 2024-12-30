@@ -1,95 +1,122 @@
-"use client";
-  
+"use client"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, use, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
+import {
+  useGetSingleJourney,
+  useUpdateJourney,
+} from "../../../../../hooks/journey.hook";
+import Loading from "../../../../../components/Loading";
+import PHInput from "../../../../../components/form/PHInput";
+import { experienceValidationSchema } from "../../../../../schema/journey.validation.schema";
+import PHForm from "../../../../../components/form/PHForm";
+import PHTextarea from "../../../../../components/form/PHTextArea";
 
 interface Params {
   id: string;
 }
 
+interface FormData {
+  company: string;
+  position: string;
+  duration: string;
+  description: string;
+}
+
 export default function UpdateCategoryPage({
   params,
 }: {
-  params: Promise<Params>;
+  params: Params;
 }) {
-  const { id } = use(params); // Unwrap `params` using React.use()
+  const { id } = params;
+  console.log(id, "id")
   const router = useRouter();
-  const [imageFiles, setImageFiles] = useState<File | null>(null);
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
-  // Fetch single category data
+  // Fetch single experience data
   const {
-    data: singleCategory,
-    isPending: singleCategoryPending,
-    isSuccess: isCategoryLoaded,
-  } = useGetSingleCategory(id);
+    data: singleExperience,
+    isPending: isFetchingExperience,
+    isSuccess: isExperienceLoaded,
+  } = useGetSingleJourney(id);
 
-  // Update category mutation
+  // Update experience mutation
   const {
-    mutate: handleUpdateCategory,
-    isPending,
-    isSuccess,
+    mutate: handleUpdateExperience,
+    isPending: isUpdating,
+    isSuccess: isUpdateSuccess,
     data: updateResponse,
-  } = useUpdateCategory();
+  } = useUpdateJourney();
 
-  const onSubmit: SubmitHandler<FormData> = (formData: any) => {
+  const onSubmit: SubmitHandler<FormData> = (formData) => {
     const formDataObj = new FormData();
-    if (imageFiles) {
-      formDataObj.append("file", imageFiles);
+    if (imageFile) {
+      formDataObj.append("file", imageFile);
     }
     formDataObj.append(
       "data",
       JSON.stringify({
-        name: formData.name,
+        company: formData.company,
+        position: formData.position,
+        duration: formData.duration,
+        description: formData.description,
       })
     );
 
-    handleUpdateCategory({ id, categoryData: formDataObj });
+    handleUpdateExperience({ id, journeyData: formDataObj });
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setImageFiles(e.target.files[0]);
+      setImageFile(e.target.files[0]);
     }
   };
 
   useEffect(() => {
-    if (updateResponse && !updateResponse?.success) {
-      toast.error(updateResponse?.message as string);
+    if (updateResponse && !updateResponse.success) {
+      toast.error(updateResponse.message as string);
     }
-    if (isSuccess && updateResponse?.success) {
-      toast.success("Category updated successfully.");
-      router.push("/admin/manage-category");
+    if (isUpdateSuccess && updateResponse.success) {
+      toast.success("Experience updated successfully.");
+      router.push("/dashboard");
     }
-  }, [updateResponse, isSuccess, router]);
+  }, [updateResponse, isUpdateSuccess, router, id]);
 
-  if (singleCategoryPending) return <Loading />;
-  if (!isCategoryLoaded || !singleCategory)
-    return <p className="text-red-500">Failed to load category details.</p>;
+  if (isFetchingExperience) return <Loading />;
+  if (!isExperienceLoaded || !singleExperience)
+    return <p className="text-red-500">Failed to load experience details.</p>;
 
   return (
-    <div className="flex h-[calc(100vh-100px)] flex-col items-center justify-center border p-6">
+    <div className="flex h-[calc(100vh-100px)] flex-col items-center justify-center bg-gray-50 p-6">
       <h3 className="mb-4 text-2xl font-semibold text-gray-800">
-        Update Category
+        Update Experience
       </h3>
-      <div className="w-full max-w-2xl rounded-lg bg-white p-8 shadow-md">
+      <div className="w-full max-w-2xl rounded-lg bg-white p-8 shadow-lg">
         <PHForm
-          resolver={zodResolver(createCategoryValidationSchema)}
+          resolver={zodResolver(experienceValidationSchema)}
           onSubmit={onSubmit}
-          defaultValues={singleCategory?.data} // Prefill form with category data
+          defaultValues={singleExperience?.data || {}} // Ensure defaultValues are valid
         >
           <div className="grid grid-cols-1 gap-6">
-            <PHInput label="Category Name" name="name" size="sm" />
+            <PHInput label="Company" name="company" size="sm" />
+            <PHInput label="Position" name="position" size="sm" />
+            <PHInput label="Duration" name="duration" size="sm" />
+            <PHTextarea
+              label="Description"
+              name="description"
+              size="sm"
+              
+            />
           </div>
           <div className="mb-6">
             <label
               className="block text-sm font-medium text-gray-700"
               htmlFor="image"
             >
-              Change Category Image
+              Change Company Logo
             </label>
             <input
               className="mt-2 block w-full rounded border-gray-300 text-sm text-gray-800 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
@@ -99,12 +126,12 @@ export default function UpdateCategoryPage({
             />
           </div>
           <Button
-            className="w-full bg-indigo-600 text-white hover:bg-indigo-700"
-            isLoading={isPending}
+            className="w-full bg-indigo-600 text-white py-3 rounded-full hover:bg-indigo-700"
+            isLoading={isUpdating}
             size="lg"
             type="submit"
           >
-            {isPending ? "Updating..." : "Update Category"}
+            {isUpdating ? "Updating..." : "Update Experience"}
           </Button>
         </PHForm>
       </div>

@@ -37,18 +37,18 @@ export const useCreateSkill = () => {
   });
 };
 
-export const useGetSingleJourney = (categoryId: string) => {
+export const useGetSingleJourney = (journeyId: string) => {
   return useQuery<any, Error, any, string[]>({
     queryKey: ["GET_SINGLE_JOURNEY"],
-    queryFn: async () => await getSingleJourneyById(categoryId),
+    queryFn: async () => await getSingleJourneyById(journeyId),
   });
 };
 
 export const useUpdateJourney = () => {
   return useMutation<any, Error, FieldValues>({
     mutationKey: ["UPDATE_JOURNEY"],
-    mutationFn: async ({ categoryId, categoryData }) =>
-      await updateJourney(categoryId, categoryData),
+    mutationFn: async ({ id, journeyData }) =>
+      await updateJourney(id, journeyData),
   });
 };
 

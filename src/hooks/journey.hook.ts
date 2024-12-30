@@ -24,6 +24,7 @@ export const useCreateExperience = () => {
     mutationFn: async (data) => await createExperience(data),
   });
 };
+
 export const useCreateEducation = () => {
   return useMutation<any, Error, FieldValues>({
     mutationKey: ["CREATE_EDUCATION"],

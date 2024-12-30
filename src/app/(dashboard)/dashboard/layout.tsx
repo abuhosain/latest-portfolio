@@ -49,7 +49,7 @@ const AdminDashboardLayout = ({ children }: { children: ReactNode }) => {
             <hr />
             {/* New Links */}
             {/* Skills */}
-            <Link href="/dashboard/manage-skills">
+            <Link href="/dashboard/skills">
               <p className="flex mt-3 items-center hover:text-blue-500 transition-all duration-200 text-lg lg:text-xl">
                 <FaCogs className="h-6 w-6 lg:h-7 lg:w-7" />
                 <span className="ml-3 hidden lg:block">Skills</span>

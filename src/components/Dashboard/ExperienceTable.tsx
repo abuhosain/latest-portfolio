@@ -27,7 +27,7 @@ const ExperienceTable = ({
         toast.success("Experince deleted successfully!");
 
         setExperiences((prevCategory) =>
-          prevCategory.filter((category) => category.id !== id)
+          prevCategory.filter((category) => category._id !== id)
         );
       } catch (error) {
         toast.error("Failed to delete the experience.");

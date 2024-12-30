@@ -41,7 +41,8 @@ const Card = ({
               {type === "skill" ? (
                 // rednder icon for skills
                 <div className="w-max xl:w-[300px] h-full relative flex items-center justify-center ">
-                  <div className="text-5xl text-primary/90">{icon}</div>
+                  <div className="text-5xl text-primary/90">
+                  <Image src={icon} width={100} height={100} alt="" /></div>
                 </div>
               ) : (
                 // render logo for experience and education

@@ -75,7 +75,7 @@ const AdminDashboardLayout = ({ children }: { children: ReactNode }) => {
             </Link>
             <hr />
             {/* Work Experience */}
-            <Link href="/dashboard/work">
+            <Link href="/dashboard/experience">
               <p className="flex mt-3 items-center hover:text-blue-500 transition-all duration-200 text-lg lg:text-xl">
                 <FaBriefcase className="h-6 w-6 lg:h-7 lg:w-7" />
                 <span className="ml-3 hidden lg:block">Work Experience</span>

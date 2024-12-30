@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 import { SiExpress, SiNextdotjs } from "react-icons/si";
 import Card from "./Card";
+import { useGetAllJourney } from "../../hooks/journey.hook";
 
 const journey = [
   // experience
@@ -126,6 +127,9 @@ const journey = [
 ];
 
 const Cards = () => {
+  const { data, isPending } = useGetAllJourney();
+
+  console.log(data?.data);
   return (
     <>
       <Tabs
@@ -146,7 +150,7 @@ const Cards = () => {
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
             >
-              {journey
+              {data?.data
                 .filter((item) => item.type === "experience")
                 .map((card, index) => {
                   return <Card key={index} {...card} />;
@@ -162,7 +166,7 @@ const Cards = () => {
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
             >
-              {journey
+              {data?.data
                 .filter((item) => item.type === "education")
                 .map((card, index) => {
                   return <Card key={index} {...card} />;
@@ -178,7 +182,7 @@ const Cards = () => {
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
             >
-              {journey
+              {data?.data
                 .filter((item) => item.type === "skill")
                 .map((card, index) => {
                   return <Card key={index} {...card} />;

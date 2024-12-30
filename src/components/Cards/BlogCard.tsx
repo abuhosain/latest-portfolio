@@ -16,33 +16,40 @@ const BlogCard = ({ blog }: { blog: IBlog }) => {
   return (
     <div
       key={blog.title}
-      className="bg-white dark:bg-black border rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
+      className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
     >
-      {/* Author Name and Cover Image */}
-      <div className="flex items-center p-4 border-b">
-        <span className="ml-3 text-lg font-medium text-gray-700 dark:text-white">
+      {/* Author Name */}
+      <div className="flex items-center p-4 border-b border-gray-200 dark:border-gray-700">
+        <span className="ml-3 text-lg font-medium text-gray-700 dark:text-gray-200">
           {blog.author}
         </span>
       </div>
-      <Image
-        alt={`${blog.author}'s cover image`}
-        className="rounded-full"
-        height={100}
-        width={300}
-        src={blog.coverImage || "/default-avatar.png"} // Fallback to default avatar
-      />
-      <hr className="border w-full" />
-      {/* Blog Title */}
-      <div className="p-5">
-        <h3 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+
+      {/* Fixed Image */}
+      <div className="relative w-full h-[200px] overflow-hidden rounded-t-lg">
+        <Image
+          alt={`${blog.author}'s cover image`}
+          src={blog.coverImage || "/default-avatar.png"} // Fallback image
+          layout="fill"
+          objectFit="cover"
+          className="rounded-t-lg"
+        />
+      </div>
+
+      {/* Blog Title and Description */}
+      <div className="p-5 flex flex-col flex-grow">
+        <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">
           {blog.title}
         </h3>
+        <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
+          {blog.content}
+        </p>
       </div>
 
       {/* View Details Button */}
       <div className="p-4 mt-auto">
         <Link
-          href={`/blog/${encodeURIComponent(blog.title)}`}
+          href={`/blog`}
           className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300"
         >
           View Details

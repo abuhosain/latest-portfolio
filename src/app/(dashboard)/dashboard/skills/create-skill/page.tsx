@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
-import { useCreateSkill } from "../../../../../hooks/journey.hook"; // Change to use createSkill
-import { skillValidationSchema } from "../../../../../schema/journey.validation.schema"; // Change to skillValidationSchema
+import { useCreateSkill } from "../../../../../hooks/journey.hook";
+import { skillValidationSchema } from "../../../../../schema/journey.validation.schema";
 import PHInput from "../../../../../components/form/PHInput";
 import PHForm from "../../../../../components/form/PHForm";
 
@@ -15,11 +15,11 @@ export default function CreateSkillPage() {
   const router = useRouter();
   const [imageFiles, setImageFiles] = useState<File | null>(null);
   const {
-    mutate: handleCreateSkill, // Changed from handleCreateExperience to handleCreateSkill
+    mutate: handleCreateSkill,
     isPending,
     isSuccess,
     data,
-  } = useCreateSkill(); // Changed to useCreateSkill
+  } = useCreateSkill();
 
   const onSubmit: SubmitHandler<any> = (formData) => {
     if (!imageFiles) {
@@ -31,13 +31,13 @@ export default function CreateSkillPage() {
     data.append(
       "data",
       JSON.stringify({
-        type: "skill", // Ensure type is 'skill' for skill creation
+        type: "skill",
         name: formData.name,
         duration: formData.duration,
         description: formData.description,
       })
     );
-    handleCreateSkill(data); // Using handleCreateSkill here
+    handleCreateSkill(data);
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +64,7 @@ export default function CreateSkillPage() {
         </p>
 
         <PHForm
-          resolver={zodResolver(skillValidationSchema)} // Ensure validation schema is for skills
+          resolver={zodResolver(skillValidationSchema)}
           onSubmit={onSubmit}
         >
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

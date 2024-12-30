@@ -7,7 +7,7 @@ import { useDeleteJourney } from "../../hooks/journey.hook";
 
 interface SkillTableProps {
   skills: any;
-  setSkills: React.Dispatch<React.SetStateAction<any[]>>;  
+  setSkills: React.Dispatch<React.SetStateAction<any[]>>;
   isLoading: boolean;
 }
 
@@ -17,7 +17,7 @@ const SkillTable = ({
   isLoading,
 }: SkillTableProps) => {
   const { mutate: deleteProduct } = useDeleteJourney();
-  const [deletingId, setDeletingId] = useState<string | null>(null); // Handle deleting state for each recipe
+  const [deletingId, setDeletingId] = useState<string | null>(null); // Handle deleting state for each skill
 
   const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this skill?")) {
@@ -26,8 +26,8 @@ const SkillTable = ({
         await deleteProduct(id);
         toast.success("Skill deleted successfully!");
 
-        setSkills((prevskill) =>
-          prevskill.filter((skill) => skill.id !== id)
+        setSkills((prevSkills) =>
+          prevSkills.filter((skill) => skill._id !== id)
         );
       } catch (error) {
         toast.error("Failed to delete the skill!");
@@ -43,15 +43,14 @@ const SkillTable = ({
         <thead className="bg-gray-200">
           <tr>
             <th className="py-2 px-4 text-left font-semibold text-gray-700">
-              Image
+              Icon
             </th>
             <th className="py-2 px-4 text-left font-semibold text-gray-700">
-              Company
+              Skill Name
             </th>
             <th className="py-2 px-4 text-left font-semibold text-gray-700">
-              Position
+              Description
             </th>
-
             <th className="py-2 px-4 text-left font-semibold text-gray-700">
               Actions
             </th>
@@ -76,11 +75,11 @@ const SkillTable = ({
                   <img
                     alt={skill?.name}
                     className="w-16 h-16 object-cover rounded-md"
-                    src={skill?.logoUrl || "/placeholder.png"}
+                    src={skill?.icon || "/placeholder.png"} // Assuming iconUrl for the skill icon
                   />
                 </td>
-                <td className="py-2 px-4">{skill.company}</td>
-                <td className="py-2 px-4">{skill?.position}</td>
+                <td className="py-2 px-4">{skill?.name}</td> {/* Skill Name */}
+                <td className="py-2 px-4">{skill?.description}</td> {/* Description */}
                 <td className="py-2 px-4 mt-3 flex space-x-2">
                   <Link href={`/dashboard/experience/${skill?._id}`}>
                     <button className="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600">

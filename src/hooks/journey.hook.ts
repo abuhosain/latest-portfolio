@@ -21,19 +21,19 @@ export const useGetAllJourney = () => {
 export const useCreateExperience = () => {
   return useMutation<any, Error, FieldValues>({
     mutationKey: ["CREATE_EXPERIENCE"],
-    mutationFn: async (userData) => await createExperience(userData),
+    mutationFn: async (data) => await createExperience(data),
   });
 };
 export const useCreateEducation = () => {
   return useMutation<any, Error, FieldValues>({
     mutationKey: ["CREATE_EDUCATION"],
-    mutationFn: async (userData) => await createEducation(userData),
+    mutationFn: async (data) => await createEducation(data),
   });
 };
 export const useCreateSkill = () => {
   return useMutation<any, Error, FieldValues>({
     mutationKey: ["CREATE_SKILL"],
-    mutationFn: async (userData) => await createSkill(userData),
+    mutationFn: async (data) => await createSkill(data),
   });
 };
 

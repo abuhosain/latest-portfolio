@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const experienceValidationSchema = z.object({
-  type: z.literal("experience"), // Ensures the type is exactly "experience"
+  type: z.literal("experience").optional(), // Ensures the type is exactly "experience"
   company: z.string().min(1, "Company name is required."), // At least one character
   position: z.string().min(2, "Position must be at least 2 characters."), // At least 2 characters
   duration: z.string().regex(
@@ -10,6 +10,6 @@ export const experienceValidationSchema = z.object({
   ), // Validates the format
   description: z
     .string()
-    .min(10, "Description must be at least 10 characters.") // Minimum length
+    .min(3, "Description must be at least 10 characters.") // Minimum length
     .max(500, "Description cannot exceed 500 characters."), // Optional maximum length
 });

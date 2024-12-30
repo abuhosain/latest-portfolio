@@ -14,7 +14,7 @@ export const getAllJourney = async () => {
 
 export const createExperience = async (experinceData: FieldValues) => {
   try {
-    const { data } = await axiosInstance.post("/experience", experinceData);
+    const { data } = await axiosInstance.post("/journey/experience", experinceData);
     return data;
   } catch (error: any) {
     const data = {
@@ -26,7 +26,7 @@ export const createExperience = async (experinceData: FieldValues) => {
 };
 export const createEducation = async (educationData: FieldValues) => {
   try {
-    const { data } = await axiosInstance.post("/education", educationData);
+    const { data } = await axiosInstance.post("/journey/education", educationData);
     return data;
   } catch (error: any) {
     const data = {
@@ -38,7 +38,7 @@ export const createEducation = async (educationData: FieldValues) => {
 };
 export const createSkill = async (skillData: FieldValues) => {
   try {
-    const { data } = await axiosInstance.post("/skill", skillData);
+    const { data } = await axiosInstance.post("/journey/skill", skillData);
     return data;
   } catch (error: any) {
     const data = {

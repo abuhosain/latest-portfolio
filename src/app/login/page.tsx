@@ -47,7 +47,7 @@ function Login() {
     <>
       {isPending && <Loading />}
       <div className="flex h-[calc(100vh-200px)] w-full flex-col items-center justify-center">
-        <h3 className="my-2 text-2xl font-bold">Premium Haat</h3>
+        <h3 className="my-2 text-2xl font-bold">Abu Hosain</h3>
         <p className="mb-4">Welcome Back! Let&lsquo;s Get Started</p>
         <div className="md:w-[45%]">
           <PHForm

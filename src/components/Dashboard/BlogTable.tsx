@@ -80,7 +80,7 @@ const BlogTable = ({ blogs, setBlogs, isLoading }: BlogTableProps) => {
                 <td className="py-3 px-4">{blog.author}</td>
 
                 <td className="py-3 px-4 flex space-x-2 mt-4">
-                  <Link href={`/dashboard/blog/${blog._id}`}>
+                  <Link href={`/dashboard/blogs/${blog._id}`}>
                     <button className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600">
                       Update
                     </button>

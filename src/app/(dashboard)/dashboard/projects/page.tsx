@@ -2,7 +2,7 @@ import React from 'react'
 
 const Porjects = () => {
   return (
-    <div>Porjects Section Coming</div>
+    <div>Porjects Section Comings</div>
   )
 }
 

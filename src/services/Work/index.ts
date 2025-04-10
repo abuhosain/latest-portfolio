@@ -12,3 +12,8 @@ export const getAllJWork = async () => {
     return data;
   };
   
+  export const deleteWork = async (id: string) => {
+    const { data } = await axiosInstance.delete(`/work/${id}`);
+    return data;
+  };
+  

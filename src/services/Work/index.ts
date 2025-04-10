@@ -1,5 +1,6 @@
 "use server";
 
+import { FieldValues } from "react-hook-form";
 import axiosInstance from "../../lib/AxiousInstance";
 
 
@@ -17,3 +18,15 @@ export const getAllJWork = async () => {
     return data;
   };
   
+  export const createWork = async (workData: FieldValues) => {
+    try {
+      const { data } = await axiosInstance.post("/work", workData);
+      return data;
+    } catch (error: any) {
+      const data = {
+        success: false,
+        message: error?.response?.data?.message,
+      };
+      return data;
+    }
+  };

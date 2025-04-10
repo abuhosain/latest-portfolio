@@ -1,11 +1,19 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { deleteWork, getAllJWork } from "../services/Work";
+import { createWork, deleteWork, getAllJWork } from "../services/Work";
 import { toast } from "sonner";
+import { FieldValues } from "react-hook-form";
 
 export const useGetAllWork = () => {
     return useQuery<any, Error, any, string[]>({
       queryKey: ["GET_ALL_WORK"],
       queryFn: async () => await getAllJWork(),
+    });
+  };
+
+  export const useCreateWork = () => {
+    return useMutation<any, Error, FieldValues>({
+      mutationKey: ["CREATE_PROJECT"],
+      mutationFn: async (data) => await createWork(data),
     });
   };
 

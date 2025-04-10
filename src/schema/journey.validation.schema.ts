@@ -12,6 +12,17 @@ export const experienceValidationSchema = z.object({
     .min(3, "Description must be at least 10 characters.") // Minimum length
     .max(500, "Description cannot exceed 500 characters."), // Optional maximum length
 });
+export const workValidationSchema = z.object({
+  category: z.string().min(1, "Category is required."), 
+  title: z.string().min(1, "Title is required."),
+  frontend: z.string().optional(),
+  backend: z.string().optional(),
+  liveLink: z.string(),
+  description: z
+    .string()
+    .min(10, "Description must be at least 10 characters.")
+    .max(500, "Description cannot exceed 500 characters."),
+});
 
 export const educationValidationSchema = z.object({
   type: z.literal("education").optional(),

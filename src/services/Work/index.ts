@@ -30,3 +30,21 @@ export const getAllJWork = async () => {
       return data;
     }
   };
+
+  export const getWokkById = async (id: string) => {
+    const { data } = await axiosInstance.get(`/work/${id}`);
+    return data;
+  };
+
+  export const updateWork = async (id: string, workData: FieldValues) => {
+    try {
+      const { data } = await axiosInstance.put(`/work/${id}`, workData);
+      return data;
+    } catch (error: any) {
+      const data = {
+        success: false,
+        message: error?.response?.data?.message,
+      };
+      return data; // Fallback error
+    }
+  };

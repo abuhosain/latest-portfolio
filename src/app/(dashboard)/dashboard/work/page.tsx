@@ -11,7 +11,6 @@ import WorkTable from "../../../../components/Dashboard/WorkTable";
 const ManageWork = () => {
   const { data, isPending } = useGetAllWork();
   const [work, setWork] = useState<any[]>([]);
-  console.log(work);
   useEffect(() => {
     if (data?.data) {
       

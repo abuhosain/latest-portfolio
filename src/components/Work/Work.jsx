@@ -6,106 +6,124 @@ import {
   TabsList,
   TabsTrigger,
 } from "../../components/ui/tabs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AnimatedText from "../AnimatedText";
 import WorkItems from "./WorkItems";
+import { useGetAllWork } from "../../hooks/work.hook";
 
-const data = [
-  {
-    href: "",
-    category: "frontend",
-    image: "/assets/work/thumb-3.png",
-    title: "Velox App",
-  },
-  {
-    href: "",
-    category: "frontend",
-    image: "/assets/work/thumb-4.png",
-    title: "Quantam Portfolio",
-  },
-  {
-    href: "",
-    category: "frontend",
-    image: "/assets/work/thumb-5.png",
-    title: "Synargy Landing Page",
-  },
-  {
-    href: "",
-    category: "fullstack",
-    image: "/assets/work/thumb-6.png",
-    title: "Apollo Travel",
-  },
-  {
-    href: "",
-    category: "fullstack",
-    image: "/assets/work/thumb-7.png",
-    title: "Horizon App",
-  },
-  {
-    href: "",
-    category: "frontend",
-    image: "/assets/work/thumb-4.png",
-    title: "Quantam Portfolio",
-  },
-  {
-    href: "",
-    category: "frontend",
-    image: "/assets/work/thumb-5.png",
-    title: "Synargy Landing Page",
-  },
-  {
-    href: "",
-    category: "fullstack",
-    image: "/assets/work/thumb-6.png",
-    title: "Apollo Travel",
-  },
-  {
-    href: "",
-    category: "fullstack",
-    image: "/assets/work/thumb-7.png",
-    title: "Horizon App",
-  },
-  {
-    href: "",
-    category: "fullstack",
-    image: "/assets/work/thumb-6.png",
-    title: "Apollo Travel",
-  },
-  {
-    href: "",
-    category: "fullstack",
-    image: "/assets/work/thumb-7.png",
-    title: "Horizon App",
-  },
-  {
-    href: "",
-    category: "frontend",
-    image: "/assets/work/thumb-4.png",
-    title: "Quantam Portfolio",
-  },
-  {
-    href: "",
-    category: "frontend",
-    image: "/assets/work/thumb-5.png",
-    title: "Synargy Landing Page",
-  },
-  {
-    href: "",
-    category: "fullstack",
-    image: "/assets/work/thumb-6.png",
-    title: "Apollo Travel",
-  },
-  {
-    href: "",
-    category: "fullstack",
-    image: "/assets/work/thumb-7.png",
-    title: "Horizon App",
-  },
-];
+// const data = [
+//   {
+//     href: "",
+//     category: "frontend",
+//     image: "/assets/work/thumb-3.png",
+//     title: "Velox App",
+//   },
+//   {
+//     href: "",
+//     category: "frontend",
+//     image: "/assets/work/thumb-4.png",
+//     title: "Quantam Portfolio",
+//   },
+//   {
+//     href: "",
+//     category: "frontend",
+//     image: "/assets/work/thumb-5.png",
+//     title: "Synargy Landing Page",
+//   },
+//   {
+//     href: "",
+//     category: "fullstack",
+//     image: "/assets/work/thumb-6.png",
+//     title: "Apollo Travel",
+//   },
+//   {
+//     href: "",
+//     category: "fullstack",
+//     image: "/assets/work/thumb-7.png",
+//     title: "Horizon App",
+//   },
+//   {
+//     href: "",
+//     category: "frontend",
+//     image: "/assets/work/thumb-4.png",
+//     title: "Quantam Portfolio",
+//   },
+//   {
+//     href: "",
+//     category: "frontend",
+//     image: "/assets/work/thumb-5.png",
+//     title: "Synargy Landing Page",
+//   },
+//   {
+//     href: "",
+//     category: "fullstack",
+//     image: "/assets/work/thumb-6.png",
+//     title: "Apollo Travel",
+//   },
+//   {
+//     href: "",
+//     category: "fullstack",
+//     image: "/assets/work/thumb-7.png",
+//     title: "Horizon App",
+//   },
+//   {
+//     href: "",
+//     category: "fullstack",
+//     image: "/assets/work/thumb-6.png",
+//     title: "Apollo Travel",
+//   },
+//   {
+//     href: "",
+//     category: "fullstack",
+//     image: "/assets/work/thumb-7.png",
+//     title: "Horizon App",
+//   },
+//   {
+//     href: "",
+//     category: "frontend",
+//     image: "/assets/work/thumb-4.png",
+//     title: "Quantam Portfolio",
+//   },
+//   {
+//     href: "",
+//     category: "frontend",
+//     image: "/assets/work/thumb-5.png",
+//     title: "Synargy Landing Page",
+//   },
+//   {
+//     href: "",
+//     category: "fullstack",
+//     image: "/assets/work/thumb-6.png",
+//     title: "Apollo Travel",
+//   },
+//   {
+//     href: "",
+//     category: "fullstack",
+//     image: "/assets/work/thumb-7.png",
+//     title: "Horizon App",
+//   },
+// ];
+
+
 const Work = () => {
+
+
+
+  const { data, isPending } = useGetAllWork();
+  const [work, setWork] = useState([]);
+  useEffect(() => {
+    if (data?.data) {
+      
+      setWork(data?.data);
+    }
+  }, [data]);
+
+
+
+
   //  extract unique categories
   const uniqueCategories = Array.from(
-    new Set(data.map((item) => item.category))
+    new Set(work.map((item) => item.category))
   );
 
   // create tab with all categories and unique categories
@@ -122,8 +140,8 @@ const Work = () => {
   // filter data based on selected tab
   const filterWork =
     tabValue === "all"
-      ? data.filter((item) => item.category !== "all")
-      : data.filter((item) => item.category === tabValue);
+      ? work.filter((item) => item.category !== "all")
+      : work.filter((item) => item.category === tabValue);
 
   // handle load more button click
   const loadMoreItem = () => {

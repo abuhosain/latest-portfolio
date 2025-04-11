@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 export interface IBlog {
+  _id: string;
   title: string;
   content: string;
   author: string;
@@ -49,7 +50,7 @@ const BlogCard = ({ blog }: { blog: IBlog }) => {
       {/* View Details Button */}
       <div className="p-4 mt-auto">
         <Link
-          href={`/blog`}
+          href={`/blog/${blog._id}`}
           className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300"
         >
           View Details

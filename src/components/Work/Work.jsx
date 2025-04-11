@@ -107,8 +107,6 @@ import { useGetAllWork } from "../../hooks/work.hook";
 
 const Work = () => {
 
-
-
   const { data, isPending } = useGetAllWork();
   const [work, setWork] = useState([]);
   useEffect(() => {
@@ -117,8 +115,6 @@ const Work = () => {
       setWork(data?.data);
     }
   }, [data]);
-
-
 
 
   //  extract unique categories

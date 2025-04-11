@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>Abu Hosain</title>
         <meta
-          name="description"
+          name="Abu Hosain"
           content="I am a full-stack developer, and I love to build web applications."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

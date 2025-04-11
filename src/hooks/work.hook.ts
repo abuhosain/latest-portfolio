@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { createWork, deleteWork, getAllJWork, updateWork } from "../services/Work";
+import { createWork, deleteWork, getAllJWork, getWokkById, updateWork } from "../services/Work";
 import { toast } from "sonner";
 import { FieldValues } from "react-hook-form";
 
@@ -34,7 +34,7 @@ export const useGetAllWork = () => {
   export const useGetSingleWork = (id: string) => {
     return useQuery<any, Error, any, string[]>({
       queryKey: ["GET_SINGLE_PROJECT"],
-      queryFn: async () => await useGetSingleWork(id),
+      queryFn: async () => await getWokkById(id),
     });
   };
 

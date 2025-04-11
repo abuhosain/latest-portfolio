@@ -70,7 +70,7 @@ const WorkTable = ({ works, setWorks, isLoading }: WorkTableProps) => {
                 <td className="py-2 px-4">{work?.category}</td>
                 <td className="py-2 px-4">{work?.description}</td>
                 <td className="py-2 px-4 mt-3 flex space-x-2">
-                  <Link href={`/dashboard/works/${work?._id}`}>
+                  <Link href={`/dashboard/work/${work?._id}`}>
                     <button className="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600">Update</button>
                   </Link>
                   <button

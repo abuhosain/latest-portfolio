@@ -1,24 +1,23 @@
 import Link from "next/link";
 import {
-  faFacebookf,
-  FaTwitter,
   FaLinkedin,
   FaFacebookF,
+  FaGithub,
 } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 
 const socials = [
   {
-    icon: <RiInstagramFill />,
-    path: "https://www.instagram.com/abuhosain25",
+    icon: <FaGithub />,
+    path: "https://github.com/abuhosain",
   },
   {
     icon: <FaFacebookF />,
     path: "https://web.facebook.com/abuhosain25",
   },
   {
-    icon: <FaTwitter />,
-    path: "https://x.com/Hosain2079912?t=C7hcUi9BTuJaKyCZQrT9ZA",
+    icon: <RiInstagramFill />,
+    path: "https://www.instagram.com/abuhosain25",
   },
   {
     icon: <FaLinkedin />,
